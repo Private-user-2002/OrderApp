@@ -21,6 +21,7 @@
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Order Title</th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">User Name</th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Total</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Created At</th>
                                 <th scope="col" class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium">Action</span></th>
                             </tr>
                         </thead>
@@ -30,6 +31,7 @@
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ $item->title ?? '--' }}</td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ optional($item->user)->name ?? '--' }}</td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ $item->total ?? '--' }}</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ \Carbon\Carbon::parse($item->created_at)->format('d/m/Y H:i A') ?? '--' }}</td>
                                     <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium">
                                         <a href="{{ route('admin.orders.show', $item->id) }}" class="text-indigo-600 hover:text-indigo-900">View</a>
                                     </td>
